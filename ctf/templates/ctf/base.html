@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Kodkollektivet - CTF</title>
+  </head>
+
+  <body>
+    <main>
+      {% block main %}
+      <h2>Välkommen till CTFen</h2>
+      <p>Hur funkar det?</p>
+      <p>
+        En Capture The Flag (CTF) är en tävling där man genom att vara klurig och använda
+        sig utav de ledtrådar och den tekniska förmåga man har klara av att lösa en serie
+        problem.
+      </p>
+
+      <a href="{% url "ctf:vad-finns-gjomt-i-koden" %}">Problem 1</a>
+
+      <h2>The ones that done it.</h2>
+
+      <ul>
+        {% for p in doneit %}
+        <li>{{p.first_name}} {{p.last_name}}</li>
+        {% endfor%}
+      </ul>
+      {% endblock main %}
+    </main>
+  </body>
+</html>
