@@ -75,8 +75,9 @@ class Hash(Question):
 
 class Kryptering(Question):
     """Kryptering"""
+    """ Password encrypted using a caesar cipher with a 7 step rotation (Only a-z alphabet) """
     template_name = 'ctf/kryptering.html'
-    answer = 'networking'
+    answer = 'datavetenskap'
     success_url = reverse_lazy('ctf:the_end')  # Next question
 
 
