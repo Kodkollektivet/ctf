@@ -21,7 +21,7 @@ class Question(CreateView):
             if form.data.get('answer') == self.answer:
                 return self.form_valid(form)
 
-        form.add_error(None, 'Sorry!')
+        form.add_error(None, 'Fel')
         return self.form_invalid(form)
 
     def form_valid(self, form):
@@ -52,6 +52,24 @@ class Matematik(Question):
     """Matematik"""
     template_name = 'ctf/matematik.html'
     answer = '274877906944'
+    success_url = reverse_lazy('ctf:password')  # Next question
+
+
+class Password(Question):
+    template_name = 'ctf/password.html'
+    answer = ''
+    success_url = reverse_lazy('ctf:time')  # Next question
+
+
+class Time(Question):
+    template_name = 'ctf/time.html'
+    answer = '1234567890'
+    success_url = reverse_lazy('ctf:hash')  # Next question
+
+
+class Hash(Question):
+    template_name = 'ctf/hash.html'
+    answer = '2410155'
     success_url = reverse_lazy('ctf:kryptering')  # Next question
 
 

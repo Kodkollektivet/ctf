@@ -7,4 +7,4 @@ class DoneIt(models.Model):
 
 
 class Answer(models.Model):
-    answer = models.CharField(max_length=255)
+    answer = models.CharField(max_length=255, blank=True)

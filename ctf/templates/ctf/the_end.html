@@ -7,7 +7,7 @@
 <p>Snyggt jobbat! Du klarade alla stegen!</p>
 <p>Om du vill skriva ditt namn så kommer du med på listan över dem som klarat hela CTFen</p>
 
-<form action="{% url "ctf:the-end" %}" method="POST">
+<form action="{% url "ctf:the_end" %}" method="POST">
   {% csrf_token %}
   {{form.as_p}}
   <input type="submit" value="Submit Form"/>

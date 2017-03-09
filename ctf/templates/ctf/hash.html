@@ -1,0 +1,46 @@
+{% extends 'ctf/question-base.html' %}
+
+{% block question %}
+Most modern Webpages are not static. They generate their content dynamically. This page is generating the code for the next step by a mathematic function called hash function.<br><br>
+
+<a href="https://en.wikipedia.org/wiki/Hash_function">Hash function at wikipedia</a><br><br>
+
+Common hash functions are MD5 and SHA256. They are used in lots of software products for different purposes. Using hashes to store user passwords for example increases the security of applications.
+
+<br>
+<br>
+<div align="center">The code for the next level is:</div><br>
+
+<p id="theCode" style="background-color: red;"></p>
+
+This webpage have a function to generate a hash of the word: Musö.
+Can you find out how to get the hash?
+
+<script>
+    function getTheHash(){
+        String.prototype.hashCode = function(){
+            var hash = 0;
+            if (this.length == 0) return hash;
+            for (i = 0; i < this.length; i++) {
+		char = this.charCodeAt(i);
+		hash = ((hash<<5)-hash)+char;
+		hash = hash & hash; // Convert to 32bit integer
+	    }
+	    return hash;
+        }
+
+    // codeword not hashed
+    codeword="Musö";
+
+    // hashed codeword
+    hashedCodeword = codeword.hashCode();
+
+    // inject the hashedCodeword into the paragraph <p> with id="theCode"
+    // Note to myself: change paragraph id accordingly!
+    document.getElementById("theCode").innerHTML = hashedCodeword;
+    }
+</script>
+
+<br>
+
+{% endblock question %}
