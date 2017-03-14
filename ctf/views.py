@@ -78,7 +78,13 @@ class Kryptering(Question):
     """ Password encrypted using a caesar cipher with a 7 step rotation (Only a-z alphabet) """
     template_name = 'ctf/kryptering.html'
     answer = 'datavetenskap'
-    success_url = reverse_lazy('ctf:the_end')  # Next question
+    success_url = reverse_lazy('ctf:rce')  # Next question
+
+
+class RemoteCodeExecution(Question):
+    template_name = 'ctf/rce.html'
+    answer = 'remotecodeexecution'
+    success_url = reverse_lazy('ctf:the_end')
 
 
 class TheEnd(CreateView):
