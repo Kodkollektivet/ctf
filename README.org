@@ -9,7 +9,6 @@
 
   #+BEGIN_SRC sh
     pip install -r requirements.txt  # Install dependencies
-    cd ctf  # Go into the project
     python manage.py makemigrations  # Make a migration scheme
     python manage.py migrate  # Create a DB with the scheme
     python manage.py runserver  # Start development server
