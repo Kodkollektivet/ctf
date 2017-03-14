@@ -44,8 +44,19 @@ class Index(TemplateView):
 class VadFinnsGjomtIKoden(Question):
     """Vad finns gjomt i koden?"""
     template_name = 'ctf/vad-finns-gjomt-i-koden.html'
-    answer = 'matematik'
+    answer = 'header'
+    success_url = reverse_lazy('ctf:header')  # Next question
+
+
+class Header(Question):
+    template_name = 'ctf/header.html'
+    answer = 'LNU'
     success_url = reverse_lazy('ctf:matematik')  # Next question
+
+    def render_to_response(self, context, **response_kwargs):
+        response = super(Header, self).render_to_response(context, **response_kwargs)
+        response['Password'] = 'LNU'
+        return response
 
 
 class Matematik(Question):
@@ -71,17 +82,6 @@ class Hash(Question):
     template_name = 'ctf/hash.html'
     answer = '2410155'
     success_url = reverse_lazy('ctf:kryptering')  # Next question
-
-
-class Header(Question):
-    template_name = 'ctf/header.html'
-    answer = 'LNU'
-    success_url = reverse_lazy('ctf:')  # Next question
-
-    def render_to_response(self, context, **response_kwargs):
-        response = super(Header, self).render_to_response(context, **response_kwargs)
-        response['Password'] = 'LNU'
-        return response
 
 
 class Kryptering(Question):
