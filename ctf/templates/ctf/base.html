@@ -11,24 +11,30 @@
   <body>
     <main>
       {% block main %}
-      <h2>Välkommen till CTFen</h2>
+      <div align="center">
+        <h2>Välkommen till CTFen</h2>
+      </div>
       <p>Hur funkar det?</p>
       <p>
-        En Capture The Flag (CTF) är en tävling där man genom att vara klurig och använda
-        sig utav de ledtrådar och den tekniska förmåga man har klara av att lösa en serie
-        problem.
+        En Capture The Flag (CTF) är en övning där man genom att vara klurig och använda
+        sig utav ledtrådar och den tekniska förmåga man har försöka klara av att lösa en
+        serie problem.
       </p>
 
       <p>
-        När du tror att du har hittat svaret på gåtan så navigerar du dit genom webläsaren.
-        Så skriver du in den i textfältet och trycker på "Svara".
-        Om det är fel så kommer det upp en text som säger "Fel".
+        När du tror att du har hittat svaret på gåtan så skriver du in det i textfältet
+        och trycker på "Svara". Om det är fel så kommer det upp en text som säger "Fel".
         Om det är rätt så går du vidare till nästa steg.
       </p>
 
-      <a href="{% url "ctf:vad-finns-gjomt-i-koden" %}">Problem 1</a>
+      <p>
+        För att starta CTFen tryck på <a href="{% url "ctf:vad-finns-gjomt-i-koden" %}">här</a>.
+      </p>
 
-      <h2>The ones that done it.</h2>
+
+      <br>
+      <br>
+      <h3>Dem som klarat den.</h3>
 
       <ul>
         {% for p in doneit %}
@@ -36,6 +42,7 @@
         {% endfor%}
       </ul>
       {% endblock main %}
+
     </main>
   </body>
 </html>
