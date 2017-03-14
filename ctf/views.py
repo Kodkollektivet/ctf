@@ -73,6 +73,17 @@ class Hash(Question):
     success_url = reverse_lazy('ctf:kryptering')  # Next question
 
 
+class Header(Question):
+    template_name = 'ctf/header.html'
+    answer = 'LNU'
+    success_url = reverse_lazy('ctf:')  # Next question
+
+    def render_to_response(self, context, **response_kwargs):
+        response = super(Header, self).render_to_response(context, **response_kwargs)
+        response['Password'] = 'LNU'
+        return response
+
+
 class Kryptering(Question):
     """Kryptering"""
     """ Password encrypted using a caesar cipher with a 7 step rotation (Only a-z alphabet) """

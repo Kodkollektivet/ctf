@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^7zLKy90bYmm7fr50/$', views.Hash.as_view(), name='hash'),
     url(r'^4mtVd5dm1ptzAkle/$', views.Kryptering.as_view(), name='kryptering'),
     url(r'^GHMDT3GVB0P7a76I/$', views.TheEnd.as_view(), name='the_end'),
+    url(r'^header/$', views.Header.as_view(), name='the_end'),
 ]
