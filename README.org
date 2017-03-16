@@ -1,5 +1,41 @@
-#+TITLE: kodkollektivet.se
-#+AUTHOR: CTF
+#+AUTHOR: Kodkollektivet
+
+* CTF
+
+  Is a Django based "framework" for doing CTFs. This project was done for one of our
+  events.
+
+* Add new question
+
+  Add a new class in =views.py= and inherit from =Question=. Create a new template, look
+  at some of the examples to get a feel for how to do it. Point your question to next url.
+  Create a new URL with some hash code.
+
+  Views example:
+
+  #+BEGIN_SRC python
+    class YourQuestion(Question):
+        """Your question."""
+        template_name = 'ctf/your_question_template.html'
+        answer = 'THE ANSWER'
+        success_url = reverse_lazy('ctf:next_problem_in_the_chain') # Next question
+  #+END_SRC
+
+  Urls example:
+
+  #+BEGIN_SRC python
+    url(r'^djsakldsjal/$', views.YourQuestion.as_view(), name='yourquestion'),
+  #+END_SRC
+
+  Template example:
+
+  #+BEGIN_SRC html
+    {% extends 'ctf/question-base.html' %}
+
+    {% block question %}
+        Write your problem description here.
+    {% endblock question %}
+  #+END_SRC
 
 * Development environment
 
