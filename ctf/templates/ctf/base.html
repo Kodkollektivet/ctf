@@ -45,4 +45,35 @@
 
     </main>
   </body>
+  <script type="text/javascript">
+  var JS ={
+
+  init : function ()
+  {
+    JS.colorChanger();
+  },
+
+  colorChanger : function ()
+  {
+    var colors = ["#ffcccc", "#ffdccc", "#ffe8cc", "#fff5cc", "#feffcc", "#efffcc", "#dcffcc", "#ccffcc", "#ccffe2", "#ccfff0", "#cceeff", "#cccfff", "#dbccff", "#f1ccff", "#ffccfa", "#ffcce0"];
+
+    var i = Math.floor((Math.random() * colors.length) + 1);
+
+    var color = colors[i];
+
+    document.body.style.backgroundColor = color;
+  },
+}
+
+window.onload = JS.init;
+</script>
+<style type="text/css">
+@charset "utf-8";
+/* CSS Document */
+body 
+{
+background: #FFFFFF;
+color: #000000;
+}
+</style>
 </html>
