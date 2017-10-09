@@ -1,36 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>Kodkollektivet - CTF</title>
   </head>
-
   <body>
-    <main>
+    <main class="container">
       {% block main %}
+
+      <nav>
+        <ul>
+          <li><a href="https://www.kodkollektivet.se">Kodkollektivet</a></li>
+          <li><a href="https://lnu.se/program/programvaruteknik/vaxjo-ht/2017/">Programvaruteknik</a></li>
+          <li><a href="https://lnu.se/program/natverkssakerhet/vaxjo-engelska-ht/2017/">Nätverkssäkerhet</a></li>
+        </ul>
+      </nav>
+
       <div align="center">
         <h2>Välkommen till CTFen</h2>
       </div>
-      <p>Hur funkar det?</p>
+
+      <p>Hur funkar detta?</p>
       <p>
-        En Capture The Flag (CTF) är en övning där man genom att vara klurig och använda
-        sig utav ledtrådar och den tekniska förmåga man har försöka klara av att lösa en
-        serie problem.
+        En Capture The Flag (CTF) är en övning där man genom ledtrådar och sin tekniska
+        förmåga försöka lösa en serie problem.
       </p>
 
       <p>
         När du tror att du har hittat svaret på gåtan så skriver du in det i textfältet
-        och trycker på "Svara". Om det är fel så kommer det upp en text som säger "Fel".
+        och trycker på "Svara". Se exempel:
+      </p>
+
+      <div align="center">
+        <form onsubmit="return false;">
+          <label>Answer:</label>
+          <input>
+          <br>
+          <br>
+          <button>Svara</button>
+        </form>
+      </div>
+
+      <p>
+        Om det är fel så kommer det upp en text som säger "Fel".
         Om det är rätt så går du vidare till nästa steg.
       </p>
 
       <p>
         För att starta CTFen tryck på <a href="{% url "ctf:vad-finns-gjomt-i-koden" %}">här</a>.
       </p>
-
 
       <br>
       <br>
@@ -45,35 +66,42 @@
 
     </main>
   </body>
-  <script type="text/javascript">
-  var JS ={
+  <style type="text/css">
+   @charset "utf-8";
+   /* CSS Document */
+   body
+   {
+       background: #FFFFFF;
+       color: #000000;
+   }
 
-  init : function ()
-  {
-    JS.colorChanger();
-  },
+   nav ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+       overflow: hidden;
+       background-color: #333;
+   }
 
-  colorChanger : function ()
-  {
-    var colors = ["#ffcccc", "#ffdccc", "#ffe8cc", "#fff5cc", "#feffcc", "#efffcc", "#dcffcc", "#ccffcc", "#ccffe2", "#ccfff0", "#cceeff", "#cccfff", "#dbccff", "#f1ccff", "#ffccfa", "#ffcce0"];
+   nav li {
+       float: left;
+   }
 
-    var i = Math.floor((Math.random() * colors.length) + 1);
+   nav li a {
+       display: block;
+       color: white;
+       text-align: center;
+       padding: 14px 16px;
+       text-decoration: none;
+   }
 
-    var color = colors[i];
+   /* Change the link color to #111 (black) on hover */
+   nav li a:hover {
+       background-color: #111;
+   }
 
-    document.body.style.backgroundColor = color;
-  },
-}
-
-window.onload = JS.init;
-</script>
-<style type="text/css">
-@charset "utf-8";
-/* CSS Document */
-body 
-{
-background: #FFFFFF;
-color: #000000;
-}
-</style>
+   ul.errorlist{
+       list-style-type: none;
+   }
+  </style>
 </html>
